@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NET_Framework_MVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,12 @@ namespace NET_Framework_MVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ViewBag.livros = Livro.Todos();
+            return View(new
+            {
+                Livros = Livro.Todos(),
+                Mensagem = "oi"
+            });
         }
 
         public ActionResult About()
