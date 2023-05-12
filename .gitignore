@@ -1114,3 +1114,5 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,csharp,visualstudiocode,git
 
+/AplicacaoMVCWilliam/AplicacaoMVCWilliam/obj/Debug/AplicacaoMVCWilliam.csproj.AssemblyReference.cache
+/.vs/slnx.sqlite
