@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -27,30 +28,30 @@ namespace NET_Framework_MVC.Models
         {
         }
 
-        public static List<Livro> Todos()
-        {
-            List<Livro> livros = new List<Livro>{
-            new Livro(1,"Narnia", "fantasia", "c.s. lewis" ),
-            new Livro(2, "A arma escalate", "Renata Ventura", "fantasia"),
-            new Livro(3, "Rainha Vermelha", "Victoria A.", "distopia"),
-            new Livro(4, "Orgulho e preconceito", "Jane Austen", "Romance")
-        };
-            return livros;
-        }
+        //public static List<Livro> Todos()
+        //{
+        //    List<Livro> livros = new List<Livro>{
+        //    new Livro(1,"Narnia", "fantasia", "c.s. lewis" ),
+        //    new Livro(2, "A arma escalate", "Renata Ventura", "fantasia"),
+        //    new Livro(3, "Rainha Vermelha", "Victoria A.", "distopia"),
+        //    new Livro(4, "Orgulho e preconceito", "Jane Austen", "Romance")
+        //};
+        //    return livros;
+        //}
 
-        public static List<Livro> TodosComSQL()
+        public static List<Livro> Todos()
         {
             List<Livro> livros = new List<Livro>();
 
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (NpgsqlConnection connection = new NpgsqlConnection(ConnectionString))
             {
                 connection.Open();
 
                 string sql = "SELECT id, titulo, autor, categoria FROM livros";
 
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
