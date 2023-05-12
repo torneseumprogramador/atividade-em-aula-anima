@@ -10,6 +10,10 @@ namespace Exercicio.AspNetFramework.TemplateBootstrap.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Title = "Home - CRUD";
+            ViewBag.Message = "Bem-Vindxs";
+            ViewBag.Paragraph = "Sistema de gerenciamento de cadastro";
+            ViewBag.TemplateVersion = "Bootstrap v5.2.3";
             return View();
         }
     }
