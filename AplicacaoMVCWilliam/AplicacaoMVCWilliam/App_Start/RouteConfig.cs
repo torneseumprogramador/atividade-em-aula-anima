@@ -18,6 +18,12 @@ namespace AplicacaoMVCWilliam
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Pessoa",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Pessoa", action = "Form", id = UrlParameter.Optional }
+            );
         }
     }
 }
