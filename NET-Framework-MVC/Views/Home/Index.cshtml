@@ -1,8 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Lista Livros";
 }
+@using NET_Framework_MVC.Models;
 
 <main>
 
-   
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Livro livro in ViewBag.livros)
+            {
+                <tr>
+                    <th scope="row">@livro.Id</th>
+                    <td>@livro.Titulo</td>
+                    <td>@livro.Autor</td>
+                    <td>@livro.Categoria</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </main>
