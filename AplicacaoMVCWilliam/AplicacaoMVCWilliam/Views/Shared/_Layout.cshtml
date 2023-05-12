@@ -39,7 +39,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3" style="font-size:10px">Exercício William Carvalho e Felipe Ferrari</div>
+                <div class="sidebar-brand-text mx-3" style="font-size:10px">Exercício William Carvalho, Felipe Ferrari e Douglas</div>
             </a>
 
             <!-- Divider -->
@@ -97,6 +97,20 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $(document).ready(function () {
+            // Defina o tempo de duração do alerta (em milissegundos)
+            var duration = 5000;
+
+            // Função para fechar o alerta após o timeout
+            function closeAlert() {
+                $('#alertaSucesso').alert('close');
+            }
+
+            // Agende o fechamento do alerta após o tempo de duração especificado
+            setTimeout(closeAlert, duration);
+        });
+    </script>
     @Scripts.Render("~/Scripts/sb-admin-2.js")
     @RenderSection("scripts", required: false)
 

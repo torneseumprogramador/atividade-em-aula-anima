@@ -1,8 +1,10 @@
-﻿using System;
+﻿using AplicacaoMVCWilliam.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 
 namespace AplicacaoMVCWilliam.Controllers
 {
@@ -10,6 +12,20 @@ namespace AplicacaoMVCWilliam.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.pessoas = Pessoa.Todos();
+
+            if (!Request.Form["nome"].IsEmpty())
+            {
+                Pessoa pessoa = new Pessoa();
+                pessoa.Nome = Request.Form["nome"];
+                pessoa.CPF = Request.Form["cpf"];
+                pessoa.Telefone = Request.Form["telefone"];
+                pessoa.Salvar();
+
+                ViewBag.mensagem = "Cadastrado com sucesso!";
+            }
+
+
             return View();
         }
 
