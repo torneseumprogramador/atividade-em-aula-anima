@@ -28,17 +28,6 @@ namespace NET_Framework_MVC.Models
         {
         }
 
-        //public static List<Livro> Todos()
-        //{
-        //    List<Livro> livros = new List<Livro>{
-        //    new Livro(1,"Narnia", "fantasia", "c.s. lewis" ),
-        //    new Livro(2, "A arma escalate", "Renata Ventura", "fantasia"),
-        //    new Livro(3, "Rainha Vermelha", "Victoria A.", "distopia"),
-        //    new Livro(4, "Orgulho e preconceito", "Jane Austen", "Romance")
-        //};
-        //    return livros;
-        //}
-
         public static List<Livro> Todos()
         {
             List<Livro> livros = new List<Livro>();
