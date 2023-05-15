@@ -8,7 +8,7 @@ using System.Web;
 
 namespace NET_Framework_MVC.Models
 {
-    public class Livro
+    public class LivroModel
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
@@ -16,7 +16,7 @@ namespace NET_Framework_MVC.Models
         public string Autor { get;set;}
         private static string ConnectionString = ConfigurationManager.ConnectionStrings["MinhaConexao"].ConnectionString;
 
-        public Livro(int id, string titulo, string categoria, string autor)
+        public LivroModel(int id, string titulo, string categoria, string autor)
         {
             Id = id;
             Titulo = titulo;
@@ -24,13 +24,37 @@ namespace NET_Framework_MVC.Models
             Autor = autor;
         }
 
-        public Livro()
+        public LivroModel()
         {
         }
 
-        public static List<Livro> Todos()
+        public void add()
         {
-            List<Livro> livros = new List<Livro>();
+            using (NpgsqlConnection connection = new NpgsqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+
+                string sql = "INSERT INTO livros (titulo, autor, categoria) VALUES (@titulo, @autor, @categoria)";
+
+                using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@titulo", this.Titulo);
+                    command.Parameters.AddWithValue("@autor", this.Autor);
+                    command.Parameters.AddWithValue("@categoria", this.Categoria);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    Console.WriteLine("Número de linhas afetadas: " + rowsAffected);
+                }
+
+               
+            }
+        }
+
+        public static List<LivroModel> Todos()
+        {
+            List<LivroModel> livros = new List<LivroModel>();
 
             using (NpgsqlConnection connection = new NpgsqlConnection(ConnectionString))
             {
@@ -44,7 +68,7 @@ namespace NET_Framework_MVC.Models
                     {
                         while (reader.Read())
                         {
-                            Livro livro = new Livro();
+                            LivroModel livro = new LivroModel();
                             livro.Id = reader.GetInt32(0);
                             livro.Titulo = reader.GetString(1);
                             livro.Autor = reader.GetString(2);

@@ -11,10 +11,10 @@ namespace NET_Framework_MVC.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.livros = Livro.Todos();
+            ViewBag.livros = LivroModel.Todos();
             return View(new
             {
-                Livros = Livro.Todos(),
+                Livros = LivroModel.Todos(),
                 Mensagem = "oi"
             });
         }
