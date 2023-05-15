@@ -1,1 +1,25 @@
-﻿
+﻿@model Exercicio.AspNetFramework.TemplateBootstrap.Models.ClienteModel
+
+<form method="POST" class="w-25" id="form-id">
+    <input type="hidden" name="Id" value="@Model.Id">
+    <div class="form-group">
+        <label for="Nome">Nome: </label>
+        <input type="text" id="Nome" name="Nome" value="@Model.Nome" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Sobrenome">Sobrenome: </label>
+        <input type="text" id="Sobrenome" name="Sobrenome" value="@Model.Sobrenome" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Email">E-mail: </label>
+        <input type="email" id="Email" name="Email" value="@Model.Email" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Profissao">Profissão: </label>
+        <input type="text" id="Profissao" name="Profissao" value="@Model.Profissao" class="form-control">
+    </div>
+    <div class="mt-3 text-end">
+        <a href="/Home/Usuarios" class="btn btn-light me-2">Cancelar</a>
+        <button class="btn btn-primary" type="submit">Salvar</button>
+    </div>
+</form>

@@ -30,12 +30,15 @@ namespace Exercicio.AspNetFramework.TemplateBootstrap.Controllers
         {
             if (id.HasValue && ClienteModel.Listagem.Any(user => user.Id == id))
             {
+                ViewBag.PrimaryTitle = "Alterar Cadastro";
                 ClienteModel cliente = ClienteModel.Listagem.Single(user => user.Id == id);
 
                 return View(cliente);
             }
 
-            return View();
+            ViewBag.PrimaryTitle = "Novo Cadastro";
+
+            return View(new ClienteModel());
         }
 
         [HttpPost]
@@ -46,14 +49,26 @@ namespace Exercicio.AspNetFramework.TemplateBootstrap.Controllers
             return RedirectToAction(nameof(Listar));
         }
 
-        public ActionResult Alterar(ClienteModel cliente)
+        [HttpGet]
+        public ActionResult Excluir(int? id)
         {
-            return View();
+            if (id.HasValue && ClienteModel.Listagem.Any(user => user.Id == id))
+            {
+                ViewBag.PrimaryTitle = "Excluir Cliente";
+                ClienteModel cliente = ClienteModel.Listagem.Single(user => user.Id == id);
+
+                return View(cliente);
+            }
+
+            return RedirectToAction(nameof(Listar));
         }
 
-        public ActionResult Exluir(ClienteModel cliente)
+        [HttpPost]
+        public ActionResult Excluir(ClienteModel cliente)
         {
-            return View();
+            TempData["Excluiu"] = ClienteModel.Excluir(cliente.Id);
+
+            return RedirectToAction(nameof(Listar));
         }
     }
 }
