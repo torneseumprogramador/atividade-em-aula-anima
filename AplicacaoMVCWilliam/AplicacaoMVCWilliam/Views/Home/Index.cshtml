@@ -21,37 +21,19 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Lista</h1>
-
-            <form action="" method="POST" class="mb-4">
-                <div class="row">
-                    <div class="col-auto">
-                        <label>Nome:</label>
-                        <input type="text" name="nome" class="form-control" />
-                    </div>
-                    <div class="col-auto">
-                        <label>CPF:</label>
-                        <input type="text" name="cpf" class="form-control" />
-                    </div>
-                    <div class="col-auto">
-                        <label>Telefone:</label>
-                        <input type="text" name="telefone" class="form-control" />
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-auto">
-                        <input type="submit" value="Cadastrar" class="btn btn-primary" />
-                    </div>
-                </div>
-
-            </form>
+            <a href="@Url.Action("Form", "Pessoa")" class="btn btn-primary mb-3">Cadastro de pessoas</a>
 
             @if (ViewBag.mensagem != null && ViewBag.mensagem != "")
             {
-                <div class="alert alert-success" role="alert" id="alertaSucesso">
-                    @ViewBag.mensagem
-                </div>
+                <script>
+                    // Após uma operação bem-sucedida
+                    Swal.fire({
+                      title: 'Uhull!',
+                      text: '@ViewBag.mensagem',
+                      icon: 'success',
+                      confirmButtonText: 'OK'
+                    })
+                </script>
             }
 
             <!-- DataTales Example -->
@@ -90,7 +72,7 @@
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2020</span>
+                <span>Copyright &copy; Exercício 2023</span>
             </div>
         </div>
     </footer>

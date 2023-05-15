@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace JOAO_V_ARAUJO
+namespace JOAO_V_ARAUJO_E_GEORDANI_PAIANO
 {
     public class MvcApplication : System.Web.HttpApplication
     {

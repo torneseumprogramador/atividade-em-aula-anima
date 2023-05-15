@@ -1,0 +1,36 @@
+﻿@model IQueryable<Exercicio.AspNetFramework.TemplateBootstrap.Models.ClienteModel>
+<hr>
+<a href="/Home/Cadastrar" class="btn btn-dark ml-auto">Novo Usuário</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome Completo</th>
+            <th>E-mail</th>
+            <th>Profissão</th>
+            <th>Data de Cadastro</th>
+            <th style="text-align:center">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Id</td>
+                <td>@usuario.NomeCompleto</td>
+                <td>@usuario.Email.ToLower()</td>
+                <td>@usuario.Profissao</td>
+                <td>@usuario.DataCadastro</td>
+                <td>
+                    <a href="@Url.Action("Cadastrar", "Home", new { id = usuario.Id })" class="btn btn-sm btn-secondary">
+                        Alterar
+                    </a>
+                    <a href="@Url.Action("Excluir", "Home", new { id = usuario.Id })" class="btn btn-sm btn-danger">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

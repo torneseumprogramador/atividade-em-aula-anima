@@ -1,0 +1,10 @@
+﻿@model Exercicio.AspNetFramework.TemplateBootstrap.Models.ClienteModel
+
+<h4>Deseja realmente excluir o usuário <span class="text-danger">@Model.NomeCompleto?</span></h4>
+<form method="post" class="w-25">
+    <input type="hidden" name="Id" value="@Model.Id">
+    <div class="mt-3">
+        <a href="@Url.Action("Usuarios")" class="btn btn-success">Não</a>
+        <button class="btn btn-danger" type="submit">Sim</button>
+    </div>
+</form>

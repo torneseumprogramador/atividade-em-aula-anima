@@ -26,5 +26,11 @@ namespace Charles_WebApplication.Controllers
 
             return View();
         }
+        public ActionResult Cadastro()
+        {
+            ViewBag.Message = "Your cadastro page.";
+
+            return View();
+        }
     }
 }
