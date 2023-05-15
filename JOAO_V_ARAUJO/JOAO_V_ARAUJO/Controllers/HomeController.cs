@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace JOAO_V_ARAUJO.Controllers
+namespace JOAO_V_ARAUJO_E_GEORDANI_PAIANO.Controllers
 {
     public class HomeController : Controller
     {
