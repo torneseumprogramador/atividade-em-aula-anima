@@ -59,5 +59,13 @@ namespace Charles_WebApplication.Controllers
 
             return RedirectToAction("CadastroClientes");
         }
+        [HttpGet]
+        public ActionResult ObterClientes()
+        {
+            List<Cliente> clientes = Cliente.GetClientes();
+
+            return PartialView("_ListaClientes", clientes);
+        }
+
     }
 }
