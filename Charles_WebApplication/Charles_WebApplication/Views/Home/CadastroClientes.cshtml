@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Cadastro de Clientes";
+
+}
+@using Charles_WebApplication.Models;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style>
+
+        table {
+            border-collapse: collapse;
+            width: 1000px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body style="padding-top: 50px;" id="page-top">
+    <div style="padding: 10px">
+        <h1 style="text-align: center">@ViewBag.Title</h1>
+        <div style="padding: 10px; background-color: lightsteelblue; border-radius: 10px; width: 1000px; margin: 0 auto; ">
+            <form method="post" action="@Url.Action("Salvar", "Home")" style="">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" required>
+
+                <button style="margin-left: 100px" type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+        <div>
+            <h1 style="text-align: center">Total de Clientes  @ViewBag.clientes.Count</h1>
+        </div>
+        <h2 style="text-align: center">Lista de Clientes</h2>
+        <div style="margin-top: 10px;">
+            <div style="margin-top: 10px;">
+                <table style="margin: 0 auto;">
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                    </tr>
+                    @foreach (Cliente cliente in ViewBag.clientes)
+                    {
+                        <tr>
+                            <td>@cliente.Nome</td>
+                            <td>@cliente.Cpf</td>
+                            <td>@cliente.Telefone</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Charles_WebApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,11 +27,18 @@ namespace Charles_WebApplication.Controllers
 
             return View();
         }
-        public ActionResult Cadastro()
+        public ActionResult CadastroClientes()
         {
-            ViewBag.Message = "Your cadastro page.";
-
+            ViewBag.clientes = Cliente.GetClientes();
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Salvar(Cliente cliente)
+        {
+            Cliente.Salvar(cliente);
+            //return View();
+            return RedirectToAction("CadastroClientes");
         }
     }
 }
