@@ -51,14 +51,36 @@
         <div>
             <h1 style="text-align: center">Total de Clientes  @ViewBag.clientes.Count</h1>
         </div>
+        <hr style="border-top: 2px solid #ccc;">
+
+        <div id="modalEditar" style="display: none;  margin-bottom:10px" tabindex="-1">
+            <h3 style="text-align:center">Editar Cliente</h3>
+            <form style="width:900px;margin: 0  auto;text-align:center" id="formEditar" method="post" action="@Url.Action("EditarCliente", "Home")">
+                <input type="hidden" name="Clienteid" id="editId" />
+                <label for="editNome">Nome:</label>
+                <input type="text" id="editNome" name="nome" required>
+
+                <label for="editCpf">CPF:</label>
+                <input type="text" id="editCpf" name="cpf" required>
+
+                <label for="editTelefone">Telefone:</label>
+                <input type="text" id="editTelefone" name="telefone" required>
+
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+        <hr style="border-top: 2px solid #ccc;">
+
+
         <h2 style="text-align: center">Lista de Clientes</h2>
-        <div style="margin-top: 10px;">
+        <div style="margin-top: 10px; ">
             <div style="margin-top: 10px;">
                 <table style="margin: 0 auto;">
                     <tr>
                         <th>Nome</th>
                         <th>CPF</th>
                         <th>Telefone</th>
+                        <th>Acao</th>
                     </tr>
                     @foreach (Cliente cliente in ViewBag.clientes)
                     {
@@ -66,13 +88,55 @@
                             <td>@cliente.Nome</td>
                             <td>@cliente.Cpf</td>
                             <td>@cliente.Telefone</td>
+                            <td>
+                                <form method="post" action="@Url.Action("Excluir", "Home")">
+                                    <input type="hidden" name="id" value="@cliente.Clienteid" />
+                                    <button class="btn btn-danger" type="submit">Excluir</button>
+                                </form>
+                                <button class="btn btn-primary editar" data-id="@cliente.Clienteid" data-nome="@cliente.Nome" data-cpf="@cliente.Cpf" data-telefone="@cliente.Telefone">Editar</button>
+                            </td>
+
                         </tr>
                     }
                 </table>
+
             </div>
 
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var editarButtons = document.querySelectorAll('.editar');
+            var modalEditar = document.getElementById('modalEditar');
+            var formEditar = document.getElementById('formEditar');
+            var editId = document.getElementById('editId');
+            var editNome = document.getElementById('editNome');
+            var editCpf = document.getElementById('editCpf');
+            var editTelefone = document.getElementById('editTelefone');
+
+            editarButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var id = this.getAttribute('data-id');
+                    var nome = this.getAttribute('data-nome');
+                    var cpf = this.getAttribute('data-cpf');
+                    var telefone = this.getAttribute('data-telefone');
+
+                    editId.value = id;
+                    editNome.value = nome;
+                    editCpf.value = cpf;
+                    editTelefone.value = telefone;
+
+                    modalEditar.style.display = 'block';
+                    modalEditar.focus(); // Define o foco no modal de edição
+                });
+            });
+
+            formEditar.addEventListener('submit', function () {
+                modalEditar.style.display = 'none';
+            });
+        });
+    </script>
+
 </body>
 </html>
 

@@ -40,5 +40,24 @@ namespace Charles_WebApplication.Controllers
             //return View();
             return RedirectToAction("CadastroClientes");
         }
+
+
+        [HttpPost]
+        public ActionResult Excluir(int? id)
+        {
+            Cliente.Excluir(id.Value);
+
+            return RedirectToAction("CadastroClientes");
+        }
+
+       
+
+        [HttpPost]
+        public ActionResult EditarCliente(Cliente cliente)
+        {
+            Cliente.Atualizar(cliente);
+
+            return RedirectToAction("CadastroClientes");
+        }
     }
 }

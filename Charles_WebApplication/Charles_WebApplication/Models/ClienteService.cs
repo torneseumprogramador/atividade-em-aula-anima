@@ -38,7 +38,7 @@ namespace Charles_WebApplication.Models
             using (var connection = new NpgsqlConnection(ConnectionString))
             {
                 connection.Open();
-                using (var command = new NpgsqlCommand("SELECT clienteid, nome, telefone, cpf FROM cliente", connection))
+                using (var command = new NpgsqlCommand("SELECT clienteid, nome, telefone, cpf FROM cliente order by nome", connection))
                 {
                     using (var reader = command.ExecuteReader())
                     {
@@ -58,6 +58,48 @@ namespace Charles_WebApplication.Models
             }
 
             return clientes;
+        }
+
+        public static void Atualizar(Cliente cliente)
+        {
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+
+
+                    command.CommandText = $"UPDATE cliente SET nome ='{cliente.Nome}', telefone ='{cliente.Telefone}', cpf ='{cliente.Cpf}' WHERE clienteid = {cliente.Clienteid};";
+                    command.ExecuteNonQuery();
+
+                }
+            }
+        }
+
+        public static void Excluir(int clienteid)
+        {
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+
+                        command.CommandText = $"DELETE FROM cliente WHERE clienteid = '{clienteid}'";
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Npgsql.PostgresException e)
+                    {
+                        // Trate a exceção aqui
+                        Console.WriteLine("Erro ao excluir Cliente: " + e.Message);
+                    }
+                }
+            }
         }
 
 
