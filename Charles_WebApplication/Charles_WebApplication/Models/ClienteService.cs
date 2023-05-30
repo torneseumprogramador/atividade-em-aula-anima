@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Windows.Forms;
 
 namespace Charles_WebApplication.Models
 {
@@ -15,21 +16,29 @@ namespace Charles_WebApplication.Models
 
         public static void Salvar(Cliente cliente)
         {
-            using (var connection = new NpgsqlConnection(ConnectionString))
+            try
             {
-                connection.Open();
-                using (var command = new NpgsqlCommand())
+                using (var connection = new NpgsqlConnection(ConnectionString))
                 {
-                    command.Connection = connection;
-                    command.CommandType = CommandType.Text;
-
-
-                    command.CommandText = $"INSERT INTO Cliente (nome, telefone, cpf) VALUES ('{cliente.Nome}', '{cliente.Telefone}', '{cliente.Cpf}')";
-                    command.ExecuteNonQuery();
-
+                    connection.Open();
+                    using (var command = new NpgsqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = $"INSERT INTO Cliente (nome, telefone, cpf) VALUES ('{cliente.Nome}', '{cliente.Telefone}', '{cliente.Cpf}')";
+                        command.ExecuteNonQuery();
+                    }
                 }
+                var mensagem = "Cadastro feito com sucesso!!!";
+                System.Windows.Forms.MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                var mensagem = "Erro!!! : ";
+                System.Windows.Forms.MessageBox.Show(mensagem+ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         public static List<Cliente> GetClientes()
         {
@@ -92,11 +101,14 @@ namespace Charles_WebApplication.Models
 
                         command.CommandText = $"DELETE FROM cliente WHERE clienteid = '{clienteid}'";
                         command.ExecuteNonQuery();
+                        var mensagem = "Exclusao feito com sucesso!!!";
+                        System.Windows.Forms.MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Npgsql.PostgresException e)
                     {
                         // Trate a exceção aqui
-                        Console.WriteLine("Erro ao excluir Cliente: " + e.Message);
+                        var mensagem = "Erro ao excluir Cliente: " + e.Message;
+                        System.Windows.Forms.MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

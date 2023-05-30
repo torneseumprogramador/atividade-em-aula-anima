@@ -56,7 +56,6 @@ C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebAp
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\obj\Debug\Charles_WebApplication.csproj.AssemblyReference.cache
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\obj\Debug\Charles_WebApplication.csproj.CoreCompileInputs.cache
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\obj\Debug\Charles_WebApplication.csproj.CopyComplete
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\obj\Debug\Charles_WebApplication.dll
