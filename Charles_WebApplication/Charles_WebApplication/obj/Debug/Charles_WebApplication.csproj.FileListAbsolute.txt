@@ -61,3 +61,12 @@ C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebAp
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\obj\Debug\Charles_WebApplication.csproj.CopyComplete
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\obj\Debug\Charles_WebApplication.dll
 C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\obj\Debug\Charles_WebApplication.pdb
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\Npgsql.dll
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\System.ValueTuple.dll
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\Npgsql.pdb
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\Npgsql.xml
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\charles.magalhaes\Desktop\ws-temp\atividade-em-aula-anima\Charles_WebApplication\Charles_WebApplication\bin\System.ValueTuple.xml
